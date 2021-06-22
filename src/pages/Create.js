@@ -1,18 +1,7 @@
-import { Button, Container, makeStyles, Typography } from "@material-ui/core";
+import { Button, Container, Typography } from "@material-ui/core";
 import KeyboardArrowRightIcon from "@material-ui/icons/KeyboardArrowRight";
 
-const useStyles = makeStyles({
-  btn: {
-    backgroundColor: "violet",
-    "&:hover": {
-      backgroundColor: "red",
-    },
-  },
-});
-
 const Create = () => {
-  const classes = useStyles();
-
   return (
     <Container>
       <Typography
@@ -24,10 +13,9 @@ const Create = () => {
         Create a New Note
       </Typography>
       <Button
-        className={classes.btn}
         type="submit"
         variant="contained"
-        color="secondary"
+        color="primary"
         disableElevation
         onClick={() => console.log("clicked!")}
         endIcon={<KeyboardArrowRightIcon />}
