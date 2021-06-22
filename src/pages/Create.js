@@ -1,4 +1,5 @@
 import { Button, Container, Typography } from "@material-ui/core";
+import KeyboardArrowRightIcon from "@material-ui/icons/KeyboardArrowRight";
 
 const Create = () => {
   return (
@@ -17,6 +18,7 @@ const Create = () => {
         color="secondary"
         disableElevation
         onClick={() => console.log("clicked!")}
+        endIcon={<KeyboardArrowRightIcon />}
       >
         Submit
       </Button>
