@@ -1,4 +1,11 @@
 import {
+  FormControl,
+  FormControlLabel,
+  FormLabel,
+  RadioGroup,
+} from "@material-ui/core";
+import { Radio } from "@material-ui/core";
+import {
   Button,
   Container,
   makeStyles,
@@ -11,6 +18,7 @@ import { useState } from "react";
 const useStyles = makeStyles({
   fields: {
     margin: "20px 0",
+    display: "block",
   },
 });
 
@@ -18,6 +26,7 @@ const Create = () => {
   const classes = useStyles();
   const [title, setTitle] = useState("");
   const [details, setDetails] = useState("");
+  const [category, setCategory] = useState("todos");
   const [titleError, setTitleError] = useState(false);
   const [detailsError, setDetailsError] = useState(false);
 
@@ -34,7 +43,7 @@ const Create = () => {
     }
 
     if (title && details) {
-      console.log(title, details);
+      console.log(title, details, category);
     }
   };
 
@@ -71,6 +80,23 @@ const Create = () => {
           onChange={(e) => setDetails(e.target.value)}
           error={detailsError}
         />
+
+        <FormControl className={classes.fields}>
+          <FormLabel>Category</FormLabel>
+          <RadioGroup
+            value={category}
+            onChange={(e) => setCategory(e.target.value)}
+          >
+            <FormControlLabel value="money" control={<Radio />} label="Money" />
+            <FormControlLabel value="todos" control={<Radio />} label="Todos" />
+            <FormControlLabel
+              value="reminders"
+              control={<Radio />}
+              label="Reminders"
+            />
+            <FormControlLabel value="work" control={<Radio />} label="Work" />
+          </RadioGroup>
+        </FormControl>
 
         <Button
           type="submit"
